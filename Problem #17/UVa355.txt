@@ -1,0 +1,69 @@
+//UVa355 : Darien Cortez : hastyhooligan
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int b1, b2;//b1 is current base and b2 is base we want ti convert to
+    char num[20];//actual value of current base (b1)
+    
+    while(cin>>b1 && cin>>b2 && cin>>num)
+    {
+        int valid = 0;//acts as bool value, set to true (0)
+        long long dec = 0, base = 1;//64 bits for dec and base
+        
+        for(int i = 0; num[i]; i++)
+        {
+            dec *= b1;
+            if(num[i] >= '0' && num[i] <= '9')
+            {
+                if(num[i]-'0' >= b1)
+                    valid = 1;
+                else
+                    dec += num[i]-'0';
+            }
+            else
+            {
+                if(num[i]-'A'+10 >= b1)
+                    valid = 1;
+                else
+                    dec += (num[i]-'A'+10);
+            }
+        }
+        
+        if(valid)
+            cout << num << " is an illegal base " << b1 << " number\n";
+            
+        else
+        {
+            long long c[50] = {}, cnt = 0;
+            while(dec)
+            {
+                c[cnt++] = dec % b2;
+                dec /= b2;
+            }
+            
+            if(cnt < 0)
+                cnt = 0;
+                
+            cout << num << " base " << b1 << " = ";
+            
+            while(cnt >= 0)
+            {
+                if (c[cnt] <= 9)
+                    c[cnt]+'0';
+                    
+                else
+                    c[cnt]-10+'A';
+                    
+                cout << c[cnt];
+                cnt--;
+            }
+            
+            cout << " base " << b2 << endl;
+        }
+    }
+    return 0;
+}

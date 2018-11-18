@@ -1,0 +1,54 @@
+// UVa_514.cpp : Darien Cortez : hastyhooligan
+
+#include <iostream>
+#include <stack>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	//N - number of coaches in station
+	int N;
+
+	while (cin >> N)
+	{
+	    if (N == 0)
+			break;
+			
+		vector<int> s(N);
+		
+		while (cin >> s[0] && s[0] != 0)
+		{
+			// gets new coach
+			for (int i = 1; i < N; i++)
+			{
+			    cin >> s[i];
+			}
+			
+			int num = 0;//reassigns number of coaches in the station
+			stack<int> station;
+			for(int j = 1; j <= N; j++)
+			{
+				station.push(j);
+				//searches for a1 - aN in station and pops it if found
+				while (!station.empty() && station.top() == s[num])
+				{
+					station.pop();
+					num++;
+					if(num >= N)
+					    break;
+				}
+			}
+
+			//reorginization is possible if all elements were popped from Btrain (queue)
+			if (station.empty())
+				cout << "Yes" << endl;
+
+			else
+				cout << "No" << endl;
+		}
+		cout << endl;
+	}
+	return 0;
+}

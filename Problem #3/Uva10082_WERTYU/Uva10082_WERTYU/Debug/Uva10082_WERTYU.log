@@ -1,0 +1,5 @@
+﻿  Uva10082_WERTYU.cpp
+e:\programming techniques\problem #3\uva10082_wertyu\uva10082_wertyu\uva10082_wertyu.cpp(20): warning C4018: '<': signed/unsigned mismatch
+e:\programming techniques\problem #3\uva10082_wertyu\uva10082_wertyu\uva10082_wertyu.cpp(27): warning C4018: '<': signed/unsigned mismatch
+e:\programming techniques\problem #3\uva10082_wertyu\uva10082_wertyu\uva10082_wertyu.cpp(12): warning C4101: 'val': unreferenced local variable
+  Uva10082_WERTYU.vcxproj -> E:\Programming Techniques\Problem #3\Uva10082_WERTYU\Debug\Uva10082_WERTYU.exe
